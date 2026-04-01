@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "neat-note.helloWorld",
-        "title": "Hello World"
+        "command": "neat-note.normalize",
+        "title": "Neat Note: Normalize Comments"
       }
     ]
   },
