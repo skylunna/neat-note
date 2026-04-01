@@ -1,26 +1,30 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from 'vscode'
+import { cleanCommentLine } from './commentCleaner'
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+export function activate (context: vscode.ExtensionContext) {
+	console.log('neat-note 已激活');
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "neat-note" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
 	const disposable = vscode.commands.registerCommand('neat-note.normalize', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('🎉 Neat Note 已激活！!');
+		// 测试用例
+		const testCases = [
+			'# 🚀 启动服务',
+			'#fix bug',
+			'# 多余空格',
+			'#!/usr/bin/env python3',
+			'# ✅ 测试通过',
+		];
+
+		let output = '🧹 清洗结果:\n\n';
+		testCases.forEach(tc => {
+			const cleaned = cleanCommentLine(tc);
+			output += `原：${tc}\n`;
+            output += `后：${cleaned}\n\n`;
+		});
+
+		vscode.window.showInformationMessage(output);
 	});
 
 	context.subscriptions.push(disposable);
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivated() {}

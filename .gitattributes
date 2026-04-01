@@ -1,0 +1,31 @@
+# 全局默认：自动检测文本文件，统一使用 LF 换行（跨系统不冲突）
+* text=auto eol=lf
+
+# 脚本/代码强制 LF（与全局一致，可保留，更明确）
+*.sh text eol=lf
+*.bash text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Windows 脚本强制 CRLF（必须保留）
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# 构建产物：标记为生成文件，GitHub 不展示 diff
+dist/** linguist-generated=true
+
+# 二进制文件：不处理换行
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.zip binary
+*.gz binary
