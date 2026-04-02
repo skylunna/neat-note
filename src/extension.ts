@@ -1,5 +1,5 @@
 import * as vscode from  'vscode';
-import { cleanCommentLine } from './commentCleaner';
+import { cleanCommentLine, CleanOptions } from './commentCleaner';
 import { findCommentStartIndex } from './pythonUtils';
 
 export function activate (context: vscode.ExtensionContext) {
@@ -19,6 +19,13 @@ export function activate (context: vscode.ExtensionContext) {
 			return;
 		}
 
+		// 读取用户配置
+		const config = vscode.workspace.getConfiguration('neat-note');
+		const options: CleanOptions = {
+			removeEmoji: config.get('removeEmoji', true),
+			fixSpacing: config.get('fixSpacing', true),
+		};
+
 		const document = editor.document;
 		const edits: vscode.TextEdit[] = [];
 
@@ -33,8 +40,8 @@ export function activate (context: vscode.ExtensionContext) {
 				// 5. 提取注释部分 (包含 # 符号)
 				const commentPart = lineText.substring(commentIndex);
 
-				// 6. 清洗注释
-				const cleanedComment = cleanCommentLine(commentPart);
+				// 传入配置选项
+				const cleanedComment = cleanCommentLine(commentPart, options);
 
 				// 7. 如果内容有变化，记录编辑操作
 				if (commentPart !== cleanedComment) {

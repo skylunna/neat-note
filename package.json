@@ -17,7 +17,22 @@
         "command": "neat-note.normalize",
         "title": "Neat Note: Normalize Comments"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Neat Note",
+      "properties": {
+        "neat-note.removeEmoji": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否移除注释中的Emoji表情"
+        },
+        "neat-note.fixSpacing": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否修复 # 后的空格 (如 #fix -> # fix)"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
