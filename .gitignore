@@ -3,3 +3,36 @@ dist
 node_modules
 .vscode-test/
 *.vsix
+
+
+# ==========================
+# VS Code 插件 专用忽略文件
+# ==========================
+
+# 编译输出
+out/
+dist/
+*.js
+!webpack.config.js
+!vite.config.js
+
+# 依赖包
+node_modules/
+
+# 插件打包文件
+*.vsix
+
+# 系统缓存
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# 脚手架无用文件
+vsc-extension-quickstart.md
+
+# 环境变量 / 密钥
+.env
+.env.*
+!.env.example
