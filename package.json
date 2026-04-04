@@ -2,6 +2,7 @@
   "name": "neat-note",
   "displayName": "neat-note",
   "publisher": "ZhengTianlun",
+  "icon": "assets/icon.png",
   "description": "clear code comments and std it",
   "version": "0.1.2", 
   "engines": {
