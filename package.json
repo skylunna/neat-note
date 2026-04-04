@@ -4,7 +4,7 @@
   "publisher": "ZhengTianlun",
   "icon": "assets/icon.png",
   "description": "clear code comments and std it",
-  "version": "0.1.2", 
+  "version": "0.1.3", 
   "engines": {
     "vscode": "^1.110.0"
   },
