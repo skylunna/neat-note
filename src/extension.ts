@@ -41,6 +41,8 @@ export function activate (context: vscode.ExtensionContext) {
 		return {
 			removeEmoji: config.get('removeEmoji', true),
 			fixSpacing: config.get('fixSpacing', true),
+			normalizeSpaces: config.get('normalizeSpaces', true),
+        	trimTrailingSpaces: config.get('trimTrailingSpaces', true),
 		};
 	};
 
